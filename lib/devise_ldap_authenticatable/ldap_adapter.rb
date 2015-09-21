@@ -128,7 +128,7 @@ module Devise
         if ldap_entry.nil?
           @ldap_auth_username_builder.call(@attribute,@login,@ldap)
         else
-          ldap_entry.uid
+          ldap_entry.uid.try(:first)
         end
       end
 
